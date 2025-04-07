@@ -1,0 +1,16 @@
+<div class="header">
+    <div class="menu" id="menu">
+        <div class="menuIcon menuItem" (mouseenter)="menuHovered = true" (mouseleave)="menuHovered = false" (click)="togglemenu()" [ngClass]="{'opened': menuOpened}">
+            <span class="menubar" [ngClass]="{'active': menuHovered}" id="menuBar1"></span>
+            <span class="menubar" [ngClass]="{'active': menuHovered}" id="menuBar2"></span>
+            <span class="menubar" [ngClass]="{'active': menuHovered}" id="menuBar3"></span>
+        </div>
+        <div class="tabList menuItem" [ngClass]="{'opened': menuOpened}">
+            <a class="tabLink menuItem" id="tabLink1" [ngClass]="{'opened': menuOpened}" href="#">About Me</a>
+            <a class="tabLink menuItem" id="tabLink2" [ngClass]="{'opened': menuOpened}" href="#">Projects</a>
+            <a class="tabLink menuItem" id="tabLink3" [ngClass]="{'opened': menuOpened}" href="#">Contact</a>
+        </div>
+    </div>
+    <h1>Jari Baumann</h1>
+    <div class="placeHolder"></div>
+</div>

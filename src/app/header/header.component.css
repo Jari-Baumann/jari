@@ -1,0 +1,145 @@
+.header {
+    height: 100px;
+    width: 100%;
+    top: 0;
+    background-color: #9ec6f3;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.menuIcon {
+    z-index: 10;
+    margin-top: 30px;
+    margin-left: 30px;
+    height: fit-content;
+    width: fit-content;
+    transition: all 1s ease-in-out;
+}
+
+.menuIcon:not(.opened).translate {
+    transform: translateY(0px) rotate(180deg);
+}
+
+.menuIcon:not(.opened).translate.rotate {
+    transform: translateY(0px) rotate(0deg);
+}
+
+.menuIcon.opened.translate {
+    transform: translateY(340px) rotate(0deg);
+}
+
+.menuIcon.opened.translate.rotate {
+    transform: translateY(340px) rotate(180deg);
+}
+
+.menubar {
+    display: block;
+    width: 40px;
+    height: 8px;
+    background-color: #000;
+    margin: 6px;
+    border-radius: 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+#menuBar1.active {
+    transform: rotate(90deg) translate(9px, 0);
+}
+
+#menuBar2.active {
+    width: 20px;
+    transform: rotate(45deg) translate(9px, 2px);
+}
+
+#menuBar3.active {
+    width: 20px;
+    transform: rotate(-45deg) translate(15px, 6px);
+}
+
+#menuBar1.transitioning {
+    transform: rotate(90deg) translate(9px, 0);
+}
+
+#menuBar2.transitioning {
+    width: 20px;
+    transform: rotate(45deg) translate(9px, 2px);
+}
+
+#menuBar3.transitioning {
+    width: 20px;
+    transform: rotate(-45deg) translate(15px, 6px);
+}
+
+.tabList {
+    width: 300px;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: #9FB3DF;
+    border-bottom-right-radius: 10px;
+    margin-left: -300px;
+    margin-top: 100px;
+    padding-bottom: 100px;
+    top: 0;
+    transition: all 1s ease-in-out;
+}
+
+.tabList.opened {
+    margin-left: 0;
+}
+
+.tabList:not(.opened) {
+    transition-delay: 0.7s;
+}
+
+.tabLink {
+    margin: 5px;
+    padding: 20px;
+    margin-left: -300px;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    transition: margin-left 0.5s ease-in-out;
+}
+  
+.tabLink.opened {
+    margin-left: 20px;
+}
+
+.tabLink:hover {
+    font-weight: 800;
+}
+
+#tabLink1.opened {
+    transition: margin-left 0.5s ease-in-out 0.2s, font-weight 0.2s ease-in-out 0s;
+}
+#tabLink2.opened {
+    transition: margin-left 0.5s ease-in-out 0.4s, font-weight 0.2s ease-in-out 0s;
+}
+#tabLink3.opened {
+    transition: margin-left 0.5s ease-in-out 0.6s, font-weight 0.2s ease-in-out 0s;
+}
+
+#tabLink1:not(.opened) {
+    transition-delay: 0.3s;
+}
+#tabLink2:not(.opened) {
+    transition-delay: 0.15s;
+}
+#tabLink3:not(.opened) {
+    transition-delay: 0s;
+}
+
+h1 {
+    font-family: 'Oxanium', sans-serif;
+    align-self: center;
+}
+
+.placeHolder {
+    width: 80px;
+}
