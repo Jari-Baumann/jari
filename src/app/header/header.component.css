@@ -10,11 +10,13 @@
 
 .menuIcon {
     z-index: 10;
-    margin-top: 30px;
-    margin-left: 30px;
+    margin-top: 25px;
+    margin-left: 25px;
+    padding: 5px;
     height: fit-content;
     width: fit-content;
     transition: all 1s ease-in-out;
+    cursor: pointer;
 }
 
 .menuIcon:not(.opened).translate {
@@ -26,11 +28,11 @@
 }
 
 .menuIcon.opened.translate {
-    transform: translateY(340px) rotate(0deg);
+    transform: translateY(320px) rotate(0deg);
 }
 
 .menuIcon.opened.translate.rotate {
-    transform: translateY(340px) rotate(180deg);
+    transform: translateY(320px) rotate(180deg);
 }
 
 .menubar {
