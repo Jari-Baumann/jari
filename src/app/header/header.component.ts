@@ -14,6 +14,7 @@ export class HeaderComponent {
   tabLinksOpened: boolean = false;
 
   ngOnInit() {
+    this.menuOpened = false
     const menu = document.getElementById('menu')!
     let menuItems: HTMLCollectionOf<Element> = document.getElementsByClassName('menuItem')!
     document.addEventListener('click', function(event) {
