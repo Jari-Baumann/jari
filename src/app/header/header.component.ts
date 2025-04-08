@@ -11,6 +11,7 @@ import { OnInit } from '@angular/core';
 export class HeaderComponent {
   menuHovered: boolean = false;
   menuOpened: boolean = false;
+  tabLinksOpened: boolean = false;
 
   ngOnInit() {
     const menu = document.getElementById('menu')!
@@ -19,7 +20,7 @@ export class HeaderComponent {
       const target = event.target as HTMLElement
       if (!menu.contains(target)) {
         for (let i = 0; i < menuItems.length; i++) {
-          menuItems.item(i)!.classList.toggle('opened')
+          menuItems.item(i)!.classList.remove('opened')
         }
       }
     })
@@ -40,7 +41,7 @@ export class HeaderComponent {
       bars.forEach((bar) => {
         bar.classList.toggle('transitioning')
       })
-    }, 1000)
+    }, 1300)
   }
 
 
