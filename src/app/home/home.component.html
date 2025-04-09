@@ -1,24 +1,88 @@
 <app-header></app-header>
 <body>
-    <div class="aboutMe">
+    <div class="aboutMe" id="aboutMe">
         <div class="title" id="downhill">
             <h1>About Me</h1>
         </div>
         <div class="panel">
             <div class="content">
-                <p>Hi! I'm a software engineer with a passion for creating innovative solutions. I have experience in various programming languages and frameworks, and I'm always eager to learn new technologies.</p>
-                <img src="/SF_Baumann_Jari_02559.jpg" alt="">
+                <p class="panelText"><strong>Hallo!</strong> Mein Name ist Jari und bin momentan im 1. Lehrjahr als Informatiker EFZ Applikationsentwicklung. Ich interessiere mich sehr für die Welt der Technik und Informatik, aber besonders gefallen mir diese Themen: 
+                    <br><br><strong>AI und Machine-Learning</strong> Das hat mich schon immer sehr stark interessiert und ich will wissen, was genau dahinter steckt und evtl. sogar wie man eine eigene AI programmiert.
+                    <br><br><strong>Data analyticts & management</strong> Wie werden Daten versendet, verschlüsselt, empfangen und abgespeichert? Ich möchte diesen Themen in meiner Lehre auf den Grund gehen. 
+                    <br><br><strong>Web-Development</strong> Von diesem Thema habe ich schon eine kleine Geschmacksprobe bekommen und bin davon begeistert. Diese Webseite habe ich selbst mit Angular erstellt. 
+                    <br><br><strong>Backend-Development</strong> Auch in diesem Bereich konnte ich bereits Erfahrungen sammeln. Es fasziniert mich, wieviele Schritte tatsächlich zwischen abfrage und Datenbank sind.
+                    <br><br>Ich freue mich auf meine weiteren Projekte und Erfahrungen, die ich in meiner Lehre noch sammeln werde.</p>
+                <img src="/image.jpg" alt="A picture of me" width="600" height="100%">
             </div>
         </div>
     </div>
-    <div class="projects">
+    <div class="projects" id="projects">
         <div class="title" id="schnee">
-            <h1>Projekte</h1>
+            <h1>Projects</h1>
         </div>
         <div class="panel">
             <div class="content">
                 <div class="project">
-                    
+                    <h1>GALILEO</h1>
+                    <h2>08/24 - 04/25</h2>
+                    <p>In dem Projekt GALILEO konnte ich mich in das Arbeitsleben bei Swisscom einleben. Ich habe verschiedene Dinge gelernt, wie z.B. Basic Webdevelopment mit HTML/CSS, wie man einfache Webapplikationen erstellt mit Angular und Typescript und wie man ein Backend-Server mit Java und Springboot erstellt. Ich konnte hier erste eigene Projekte umsetzen, unter anderem ein Angular Schachspiel und eine Webapplikation für Api-Tokens</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="skills" id="skills">
+        <div class="title" id="aussicht">
+            <h1>Skills</h1>
+        </div>
+        <div class="panel">
+            <div class="content">
+                <div class="skill">
+                    <h1>HTML</h1>
+                    <h2>{{htmlSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (htmlSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(htmlSkill)*4) + 'px'}"></span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h1>CSS</h1>
+                    <h2>{{cssSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (cssSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(cssSkill)*4) + 'px'}"></span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h1>TypeScript</h1>
+                    <h2>{{tsSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (tsSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(tsSkill)*4) + 'px'}"></span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h1>Angular</h1>
+                    <h2>{{angularSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (angularSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(angularSkill)*4) + 'px'}"></span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h1>Java</h1>
+                    <h2>{{javaSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (javaSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(javaSkill)*4) + 'px'}"></span>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h1>SpringBoot</h1>
+                    <h2>{{springSkill}}%</h2>
+                    <div class="progress-bar">
+                        <span class="progress" [ngStyle]="{'width': (springSkill*4) + 'px'}"></span>
+                        <span class="noProgress" [ngStyle]="{'width': (progressTo100(springSkill)*4) + 'px'}"></span>
+                    </div>
                 </div>
             </div>
         </div>

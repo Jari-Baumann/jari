@@ -1,49 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [NgClass],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   menuHovered: boolean = false;
   menuOpened: boolean = false;
   tabLinksOpened: boolean = false;
 
+  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+
   ngOnInit() {
-    this.menuOpened = false
-    const menu = document.getElementById('menu')!
-    let menuItems: HTMLCollectionOf<Element> = document.getElementsByClassName('menuItem')!
-    document.addEventListener('click', function(event) {
-      const target = event.target as HTMLElement
-      if (!menu.contains(target)) {
-        for (let i = 0; i < menuItems.length; i++) {
-          menuItems.item(i)!.classList.remove('opened')
-        }
+    this.renderer.listen('document', 'click', (event: Event) => {
+      const target = event.target as HTMLElement;
+      const clickedInside = this.elRef.nativeElement.contains(target);
+      if (!clickedInside && this.menuOpened) {
+        this.closeMenu();
       }
-    })
+    });
   }
 
   togglemenu() {
-    this.menuOpened = !this.menuOpened
-    const icon = document.querySelector('.menuIcon')!
-    const bars = document.querySelectorAll('.menubar')
-    const iconClassList = Array.from(icon.classList)
+    this.menuOpened = !this.menuOpened;
 
-    iconClassList.includes('translate') ? icon.classList.toggle('rotate') : icon.classList.toggle('translate')
+    const icon = document.querySelector('.menuIcon')!;
+    const bars = document.querySelectorAll('.menubar');
+    const iconClassList = Array.from(icon.classList);
+
+    iconClassList.includes('translate')
+      ? icon.classList.toggle('rotate')
+      : icon.classList.toggle('translate');
+
     bars.forEach((bar) => {
-      bar.classList.toggle('transitioning')
-    })
+      bar.classList.toggle('transitioning');
+    });
+
     setTimeout(() => {
-      iconClassList.includes('translate') ? icon.classList.toggle('translate') : icon.classList.toggle('rotate')
+      iconClassList.includes('translate')
+        ? icon.classList.toggle('translate')
+        : icon.classList.toggle('rotate');
+
       bars.forEach((bar) => {
-        bar.classList.toggle('transitioning')
-      })
-    }, 1300)
+        bar.classList.toggle('transitioning');
+      });
+    }, 1300);
   }
 
+  closeMenu() {
+    this.menuOpened = false;
+    const icon = document.querySelector('.menuIcon');
+    if (icon?.classList.contains('translate')) icon.classList.remove('translate');
+    if (icon?.classList.contains('rotate')) icon.classList.remove('rotate');
 
+    document.querySelectorAll('.menubar').forEach(bar => {
+      bar.classList.remove('transitioning');
+    });
+
+    const openedElements = Array.from(document.getElementsByClassName('opened'));
+    openedElements.forEach((element) => {
+      element.classList.remove('opened');
+    });
+  }
 }
